@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okw4robot"
+version = "0.1.0"
+dependencies = ["robotframework", "selenium", "PyYAML"]
