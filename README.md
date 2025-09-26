@@ -1,4 +1,4 @@
-# OKW4Robot
+﻿# OKW4Robot
 
 Treiber-unabhängige Keyword-Architektur für das [Robot Framework](https://robotframework.org/).
 
@@ -6,19 +6,19 @@ Dieses Projekt ermöglicht es, mit einem einheitlichen Satz von Schlüsselwörte
 
 ---
 
-## 🔍 Dokumentation
+## Dokumentation
 
-| Thema                              | Datei                                                | Beschreibung |
-|-----------------------------------|-------------------------------------------------------|--------------|
-| Kontext-Verwaltung                 | [docs/context.md](docs/context.md)                   | Verwaltet den aktiven Host, die App und das fokussierte Widget zur Laufzeit |
-| Host- und App-Schlüsselwörter      | [docs/keywords_host_app.md](docs/keywords_host_app.md) | Detaillierte Beschreibung der Schlüsselwörter `Start Host`, `Stop Host`, `Select Host`, `Start App`, `Stop App`, `Select App` |
-| Übersicht: Host & App Keywords     | [docs/keywords_host_app_overview.md](docs/keywords_host_app_overview.md) | Tabelle aller Host- und App-bezogenen Keywords mit Funktion |
-| Host-Konfiguration JavaRPC         | [docs/host_config_javarpc.md](docs/host_config_javarpc.md) | Beschreibung aller YAML-Parameter für JavaRPC-Hosts und deren Anwendungen |
-| Teststrategie GUI-Export           | [docs/test_strategy_gui_export.md](docs/test_strategy_gui_export.md) | Strategie zur Verwendung des JavaRPC-Servers für GUI-Inspektion und Objektlisten-Export |
+
+- Docs-Übersicht: [docs/README.md](docs/README.md)
+- Common Widgets (Web): [docs/widgets_common.md](docs/widgets_common.md)
+- ComboBox & ListBox: [docs/widgets_combobox_listbox.md](docs/widgets_combobox_listbox.md)
+- Keyword × Widget Matrix (Web, Selenium): [docs/Web_Widget_Matrix.md](docs/Web_Widget_Matrix.md)
+- Ignore-Regel (, , ): [docs/keywords_ignore_rule.md](docs/keywords_ignore_rule.md)
+- Placeholder-Keywords: [docs/keywords_placeholder.md](docs/keywords_placeholder.md)
 
 ---
 
-## 🚀 Erste Schritte
+## Erste Schritte
 
 ```bash
 pip install -e .
@@ -33,7 +33,7 @@ Library    okw4robot.keywords.widget_keywords.WidgetKeywords
 
 ---
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 OKW4Robot/
