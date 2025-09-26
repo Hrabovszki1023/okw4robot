@@ -23,9 +23,28 @@ class SeleniumWebAdapter:
         resolved = self._resolve(locator)
         self.sl.click_element(resolved)
 
+    def double_click(self, locator):
+        resolved = self._resolve(locator)
+        # SeleniumLibrary supports double click on element
+        self.sl.double_click_element(resolved)
+
     def get_text(self, locator):
         resolved = self._resolve(locator)
         return self.sl.get_text(resolved)
+
+    def get_value(self, locator):
+        resolved = self._resolve(locator)
+        return self.sl.get_value(resolved)
+
+    def get_attribute(self, locator, name):
+        resolved = self._resolve(locator)
+        # Use WebElement for reliable attribute access
+        el = self.sl.get_webelement(resolved)
+        return el.get_attribute(name)
+
+    def clear_text(self, locator):
+        resolved = self._resolve(locator)
+        self.sl.clear_element_text(resolved)
 
     def element_exists(self, locator):
         try:
@@ -33,6 +52,72 @@ class SeleniumWebAdapter:
             return True
         except Exception:
             return False
+
+    # Select/Combo support
+    def select_by_label(self, locator, label):
+        resolved = self._resolve(locator)
+        self.sl.select_from_list_by_label(resolved, label)
+
+    def select_by_value(self, locator, value):
+        resolved = self._resolve(locator)
+        self.sl.select_from_list_by_value(resolved, value)
+
+    def select_by_index(self, locator, index):
+        resolved = self._resolve(locator)
+        self.sl.select_from_list_by_index(resolved, str(index))
+
+    # Keyboard
+    def press_keys(self, locator, keys):
+        # `locator` may be None to send keys to active element
+        target = self._resolve(locator) if locator else None
+        self.sl.press_keys(target, keys)
+
+    # Waits
+    def wait_until_visible(self, locator, timeout=None):
+        resolved = self._resolve(locator)
+        self.sl.wait_until_element_is_visible(resolved, timeout=timeout)
+
+    def wait_until_not_visible(self, locator, timeout=None):
+        resolved = self._resolve(locator)
+        self.sl.wait_until_element_is_not_visible(resolved, timeout=timeout)
+
+    # CheckBox helpers
+    def set_checkbox(self, locator, checked: bool):
+        el = self.sl.get_webelement(self._resolve(locator))
+        if bool(el.is_selected()) != bool(checked):
+            el.click()
+
+    def is_checkbox_selected(self, locator) -> bool:
+        el = self.sl.get_webelement(self._resolve(locator))
+        return bool(el.is_selected())
+
+    # Listbox helpers
+    def get_selected_list_labels(self, locator):
+        resolved = self._resolve(locator)
+        return self.sl.get_selected_list_labels(resolved)
+
+    def get_selected_list_values(self, locator):
+        resolved = self._resolve(locator)
+        return self.sl.get_selected_list_values(resolved)
+
+    def unselect_all_from_list(self, locator):
+        resolved = self._resolve(locator)
+        self.sl.unselect_all_from_list(resolved)
+
+    def unselect_from_list_by_label(self, locator, labels):
+        resolved = self._resolve(locator)
+        self.sl.unselect_from_list_by_label(resolved, labels)
+
+    def unselect_from_list_by_value(self, locator, values):
+        resolved = self._resolve(locator)
+        self.sl.unselect_from_list_by_value(resolved, values)
+
+    # Radio helpers
+    def select_radio(self, group_name: str, value: str):
+        self.sl.select_radio_button(group_name, value)
+
+    def radio_button_should_be_set_to(self, group_name: str, value: str):
+        self.sl.radio_button_should_be_set_to(group_name, value)
 
     def _resolve(self, locator_dict):
         if not locator_dict:

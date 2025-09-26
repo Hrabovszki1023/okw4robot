@@ -17,5 +17,6 @@ Export SwingSet3 GUI Structure
     [Documentation]    Fragt die Struktur vom Java-Fenster ab und speichert sie in YAML.
     Start Host    JavaRPC
     Wait Until JavaRPC Server Is Ready
-    Export Object Tree To File    ${OUTPUT_FILE}
+    
+    
 

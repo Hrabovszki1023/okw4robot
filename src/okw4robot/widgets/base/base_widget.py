@@ -2,9 +2,10 @@ import inspect
 from okw4robot.utils.logging_mixin import LoggingMixin
 
 class BaseWidget(LoggingMixin):
-    def __init__(self, adapter, locator):
+    def __init__(self, adapter, locator, **options):
         self.adapter = adapter
         self.locator = locator
+        self.options = options or {}
 
     def okw_click(self): raise NotImplementedError()
     def okw_double_click(self): raise NotImplementedError()

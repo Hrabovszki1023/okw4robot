@@ -1,8 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    okw4robot.keywords.host.HostKeywords
-Library    okw4robot.keywords.app.AppKeywords
-Library    okw4robot.keywords.widget_keywords.WidgetKeywords
+Library    okw4robot.keywords.host.HostKeywords                 WITH NAME    Host
+Library    okw4robot.keywords.app.AppKeywords                   WITH NAME    App
+Library    okw4robot.keywords.widget_keywords.WidgetKeywords    WITH NAME    KW
 
 # Suite Setup     Setup Login Test
 # Suite Teardown  Close All Browsers
@@ -60,4 +60,3 @@ Chrome Zu Firefox Umschalten
     Select Window  Firefox
     SetValue       URL    ${LOGIN_HTML}
     Stop Host
-

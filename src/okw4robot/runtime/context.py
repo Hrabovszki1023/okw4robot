@@ -1,5 +1,15 @@
-class Context:
+from okw4robot.utils.logging_mixin import LoggingMixin
+
+
+class Context(LoggingMixin):
+    """Zentraler Laufzeitkontext fuer OKW4Robot.
+
+    Haelt den aktiven Host/Adapter, den aktuellen App-Kontext (Name und Modell)
+    sowie das aktuell ausgewaehlte Fenster/Widget. Keywords greifen auf diesen
+    Kontext zu, um Operationen gegen die Anwendung gezielt auszufuehren.
+    """
     def __init__(self):
+        """Initialisiert leeren Kontext (kein Adapter, keine App, kein Fenster)."""
         self._adapter = None
         self._app_model = None
         self._app_name = None
@@ -16,6 +26,7 @@ class Context:
         self._app_name = None
         self._window = None
 
+        self.log_info(f"[Context] Adapter '{adapter.__class__.__name__}' wurde gesetzt.")
         print(f"[Context] Adapter '{adapter.__class__.__name__}' wurde gesetzt.")
 
 
@@ -35,6 +46,14 @@ class Context:
         print(f"[Context] Adapter '{self._adapter.__class__.__name__}' wurde gestoppt.")
 
     def get_adapter(self):
+        """Gibt den aktiven Adapter zurueck.
+
+        Returns:
+        - Adapter-Instanz
+
+        Raises:
+        - RuntimeError: Wenn kein Adapter aktiv ist.
+        """
         if not self._adapter:
             raise RuntimeError("No host/adapter is active.")
         return self._adapter
@@ -119,6 +138,14 @@ class Context:
 
 
     def get_current_window_model(self):
+        """Gibt das Modell des aktuell ausgewaehlten Fensters/Widgets zurueck.
+
+        Returns:
+        - Modellobjekt (z.B. dict) des selektierten Fensters/Widgets.
+
+        Raises:
+        - RuntimeError: Wenn Adapter, App oder Fenster nicht gesetzt sind.
+        """
         if self._adapter is None:
             raise RuntimeError("No adapter available.")
         if self._app_model is None:
@@ -129,6 +156,7 @@ class Context:
 
     # === DIAGNOSTICS ===
     def describe(self):
+        """Kurzuebersicht des aktuellen Kontextes fuer Diagnose und Logging."""
         return {
             "adapter": type(self._adapter).__name__ if self._adapter else None,
             "app": self._app_name,

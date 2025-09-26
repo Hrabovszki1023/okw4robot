@@ -8,4 +8,5 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 pip install -e .
 
 # Robot-Tests ausführen
-robot -d reports tests\test_swingset3_structure.robot
+# robot -d reports tests\test_swingset3_structure.robot
+robot -d reports tests\WidgetsDemo.robot
