@@ -1,6 +1,6 @@
-# Dokumentation (Übersicht)
+﻿# Dokumentation (Ãœbersicht)
 
-Diese Seite listet alle Markdown‑Dokumente im Ordner `docs/` auf und verlinkt sie direkt.
+Diese Seite listet alle Markdownâ€‘Dokumente im Ordner `docs/` auf und verlinkt sie direkt.
 
 - [context.md](context.md)
 - [docs_host_app_config.md](docs_host_app_config.md)
@@ -13,5 +13,7 @@ Diese Seite listet alle Markdown‑Dokumente im Ordner `docs/` auf und verlinkt 
 - [Web_Widget_Matrix.md](Web_Widget_Matrix.md)
 - [widgets_combobox_listbox.md](widgets_combobox_listbox.md)
 - [widgets_common.md](widgets_common.md)
+- [okw_parameters.md](okw_parameters.md)
 
-Hinweis: Beispiel‑HTMLs liegen unter `docs/examples/` (z. B. `widgets_demo.html`).
+Hinweis: Beispielâ€‘HTMLs liegen unter `docs/examples/` (z. B. `widgets_demo.html`).
+

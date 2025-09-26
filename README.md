@@ -56,3 +56,5 @@ OKW4Robot/
 ---
 
 © 2025 Zoltán Hrabovszki – OpenKeyWord / OKW4Robot
+- Tooltip-Keywords: [docs/keywords_tooltip.md](docs/keywords_tooltip.md)
+- OKW Parameter und Timeouts: [docs/okw_parameters.md](docs/okw_parameters.md)

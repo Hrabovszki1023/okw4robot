@@ -86,21 +86,75 @@ class WidgetKeywords:
         if _should_ignore(expected):
             print(f"[VerifyValue] '{name}' ignored (blank or $IGNORE)")
             return
-        resolve_widget(name).okw_verify_value(expected)
+        import time
+        from robot.libraries.BuiltIn import BuiltIn
+        w = resolve_widget(name)
+        try:
+            to = BuiltIn().get_variable_value("${OKW_TIMEOUT_VERIFY_VALUE}", default=10)
+            timeout = float(to) if isinstance(to, (int, float)) else BuiltIn().convert_time(str(to))
+        except Exception:
+            timeout = 10.0
+        end = time.time() + timeout
+        last_error = None
+        while time.time() < end:
+            try:
+                w.okw_verify_value(expected)
+                return
+            except AssertionError as e:
+                last_error = e
+                time.sleep(0.1)
+        if last_error:
+            raise last_error
 
     @keyword("VerifyValueWCM")
     def verify_value_wcm(self, name, expected):
         if _should_ignore(expected):
             print(f"[VerifyValueWCM] '{name}' ignored (blank or $IGNORE)")
             return
-        resolve_widget(name).okw_verify_value_wcm(expected)
+        import time
+        from robot.libraries.BuiltIn import BuiltIn
+        w = resolve_widget(name)
+        try:
+            to = BuiltIn().get_variable_value("${OKW_TIMEOUT_VERIFY_VALUE}", default=10)
+            timeout = float(to) if isinstance(to, (int, float)) else BuiltIn().convert_time(str(to))
+        except Exception:
+            timeout = 10.0
+        end = time.time() + timeout
+        last_error = None
+        while time.time() < end:
+            try:
+                w.okw_verify_value_wcm(expected)
+                return
+            except AssertionError as e:
+                last_error = e
+                time.sleep(0.1)
+        if last_error:
+            raise last_error
 
     @keyword("VerifyValueREGX")
     def verify_value_regx(self, name, expected):
         if _should_ignore(expected):
             print(f"[VerifyValueREGX] '{name}' ignored (blank or $IGNORE)")
             return
-        resolve_widget(name).okw_verify_value_regex(expected)
+        import time
+        from robot.libraries.BuiltIn import BuiltIn
+        w = resolve_widget(name)
+        try:
+            to = BuiltIn().get_variable_value("${OKW_TIMEOUT_VERIFY_VALUE}", default=10)
+            timeout = float(to) if isinstance(to, (int, float)) else BuiltIn().convert_time(str(to))
+        except Exception:
+            timeout = 10.0
+        end = time.time() + timeout
+        last_error = None
+        while time.time() < end:
+            try:
+                w.okw_verify_value_regex(expected)
+                return
+            except AssertionError as e:
+                last_error = e
+                time.sleep(0.1)
+        if last_error:
+            raise last_error
 
     @keyword("VerifyExist")
     def verify_exist(self, name, expected):
