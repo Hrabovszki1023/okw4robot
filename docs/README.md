@@ -17,3 +17,7 @@ Diese Seite listet alle Markdownâ€‘Dokumente im Ordner `docs/` auf und verl
 
 Hinweis: Beispielâ€‘HTMLs liegen unter `docs/examples/` (z. B. `widgets_demo.html`).
 
+
+- [keywords_label.md](keywords_label.md)
+
+- [keywords_caption.md](keywords_caption.md)

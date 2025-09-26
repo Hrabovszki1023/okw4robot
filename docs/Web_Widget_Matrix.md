@@ -23,6 +23,16 @@ Diese Matrix ist transponiert: Schlüsselwörter als Zeilen, Widgets als Spalten
 | VerifyTooltipREGX         |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 | MemorizeTooltip           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 | LogTooltip                |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabel               |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabelWCM            |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabelREGX           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| MemorizeLabel             |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| LogLabel                  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyCaption             |   ✔    |           |                |   ✔   |          |          |           |         |
+| VerifyCaptionWCM          |   ✔    |           |                |   ✔   |          |          |           |         |
+| VerifyCaptionREGX         |   ✔    |           |                |   ✔   |          |          |           |         |
+| MemorizeCaption           |   ✔    |           |                |   ✔   |          |          |           |         |
+| LogCaption                |   ✔    |           |                |   ✔   |          |          |           |         |
 
 Hinweise
 - VerifyExist: generisch für alle Widgets über `BaseWidget.okw_verify_exist()` (Adapter: `element_exists`).
@@ -36,3 +46,5 @@ Verweise
 - Keywords (Allgemein): `src/okw4robot/keywords/widget_keywords.py`
 - Placeholder‑Keywords: `src/okw4robot/keywords/placeholder_keywords.py`
 - Tooltip‑Keywords: `src/okw4robot/keywords/tooltip_keywords.py`
+- Label‑Keywords: `src/okw4robot/keywords/label_keywords.py`
+- Caption‑Keywords: `src/okw4robot/keywords/caption_keywords.py`

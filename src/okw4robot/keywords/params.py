@@ -18,6 +18,8 @@ class ParamsKeywords:
             "TIMEOUTVERIFYVALUE": "${OKW_TIMEOUT_VERIFY_VALUE}",
             "TIMEOUTVERIFYTOOLTIP": "${OKW_TIMEOUT_VERIFY_TOOLTIP}",
             "TIMEOUTVERIFYPLACEHOLDER": "${OKW_TIMEOUT_VERIFY_PLACEHOLDER}",
+            "TIMEOUTVERIFYLABEL": "${OKW_TIMEOUT_VERIFY_LABEL}",
+            "TIMEOUTVERIFYCAPTION": "${OKW_TIMEOUT_VERIFY_CAPTION}",
         }
         key = str(name or "").strip().upper()
         if key not in mapping:
@@ -26,4 +28,3 @@ class ParamsKeywords:
         from robot.libraries.BuiltIn import BuiltIn
         # Keep raw value; readers will convert appropriately
         BuiltIn().set_suite_variable(var_name, value)
-
