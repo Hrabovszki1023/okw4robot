@@ -21,3 +21,5 @@ Hinweis: Beispielâ€‘HTMLs liegen unter `docs/examples/` (z. B. `widgets_dem
 - [keywords_label.md](keywords_label.md)
 
 - [keywords_caption.md](keywords_caption.md)
+
+- [keywords_attribute.md](keywords_attribute.md)

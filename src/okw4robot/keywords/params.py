@@ -20,6 +20,7 @@ class ParamsKeywords:
             "TIMEOUTVERIFYPLACEHOLDER": "${OKW_TIMEOUT_VERIFY_PLACEHOLDER}",
             "TIMEOUTVERIFYLABEL": "${OKW_TIMEOUT_VERIFY_LABEL}",
             "TIMEOUTVERIFYCAPTION": "${OKW_TIMEOUT_VERIFY_CAPTION}",
+            "TIMEOUTVERIFYATTRIBUTE": "${OKW_TIMEOUT_VERIFY_ATTRIBUTE}",
         }
         key = str(name or "").strip().upper()
         if key not in mapping:

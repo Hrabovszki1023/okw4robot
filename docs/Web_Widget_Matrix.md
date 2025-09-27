@@ -1,44 +1,76 @@
-# Web Keyword × Widget Matrix (Selenium)
+## 1. Aktionen ohne Eingabewert
+Kurzbeschreibung: Aktionen, die keine Werte übergeben bekommen (z. B. Klicks).
 
-Diese Matrix ist transponiert: Schlüsselwörter als Zeilen, Widgets als Spalten. Ein Häkchen (✔) bedeutet implementiert; leere Felder sind (derzeit) nicht implementiert. Gilt für den Web‑Adapter (Selenium).
+| Keyword        | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
+|----------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
+| ClickOn        |   ✔    |     ✔     |       ✔        |       |    ✔     |          |           |         |
+| DoubleClickOn  |   ✔    |           |                |       |          |          |           |         |
 
-| Keyword                    | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
-|---------------------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
-| ClickOn                   |   ✔    |     ✔     |       ✔        |       |    ✔     |          |           |         |
-| DoubleClickOn             |   ✔    |           |                |       |          |          |           |         |
-| SetValue                  |        |     ✔     |       ✔        |       |    ✔     |    ✔     |           |         |
-| Select                    |        |           |                |       |          |    ✔     |     ✔     |    ✔    |
-| TypeKey                   |        |           |                |       |          |          |           |         |
-| VerifyValue               |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyValueWCM            |        |     ✔     |       ✔        |   ✔   |          |          |           |         |
-| VerifyValueREGX           |        |     ✔     |       ✔        |   ✔   |          |          |           |         |
-| VerifyExist               |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| LogValue                  |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |           |    ✔    |
-| MemorizeValue             |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |           |    ✔    |
-| VerifyPlaceholder         |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
-| VerifyPlaceholderWCM      |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
-| VerifyPlaceholderREGX     |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
-| VerifyTooltip             |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyTooltipWCM          |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyTooltipREGX         |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| MemorizeTooltip           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| LogTooltip                |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyLabel               |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyLabelWCM            |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyLabelREGX           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| MemorizeLabel             |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| LogLabel                  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
-| VerifyCaption             |   ✔    |           |                |   ✔   |          |          |           |         |
-| VerifyCaptionWCM          |   ✔    |           |                |   ✔   |          |          |           |         |
-| VerifyCaptionREGX         |   ✔    |           |                |   ✔   |          |          |           |         |
-| MemorizeCaption           |   ✔    |           |                |   ✔   |          |          |           |         |
-| LogCaption                |   ✔    |           |                |   ✔   |          |          |           |         |
+## 2. Aktionen mit Eingabewert
+Kurzbeschreibung: Aktionen, die einen Wert/Parameter benötigen (Eingaben, Auswahlen).
+
+| Keyword   | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
+|-----------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
+| SetValue  |        |     ✔     |       ✔        |       |    ✔     |    ✔     |           |         |
+| Select    |        |           |                |       |          |    ✔     |     ✔     |    ✔    |
+| TypeKey   |        |           |                |       |          |          |           |         |
+
+## 3. Verify (wartend, mit Timeout)
+Kurzbeschreibung: Prüfungen, die bis zum Sollzustand oder Timeout warten.
+
+| Keyword                  | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
+|--------------------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
+| VerifyValue              |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyValueWCM           |        |     ✔     |       ✔        |   ✔   |          |          |           |         |
+| VerifyValueREGX          |        |     ✔     |       ✔        |   ✔   |          |          |           |         |
+| VerifyPlaceholder        |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
+| VerifyPlaceholderWCM     |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
+| VerifyPlaceholderREGX    |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
+| VerifyTooltip            |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyTooltipWCM         |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyTooltipREGX        |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabel              |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabelWCM           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyLabelREGX          |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyCaption            |   ✔    |           |                |   ✔   |          |          |           |         |
+| VerifyCaptionWCM         |   ✔    |           |                |   ✔   |          |          |           |         |
+| VerifyCaptionREGX        |   ✔    |           |                |   ✔   |          |          |           |         |
+| VerifyAttribute          |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyAttributeWCM       |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyAttributeREGX      |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyExist (generisch)  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+
+## 4. Memorize
+Kurzbeschreibung: Liest Werte/Attribute und speichert sie in Robot‑Variablen.
+
+| Keyword            | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
+|--------------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
+| MemorizeValue      |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |           |    ✔    |
+| MemorizeTooltip    |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| MemorizeLabel      |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| MemorizeCaption    |   ✔    |           |                |   ✔   |          |          |           |         |
+| MemorizeAttribute  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+
+## 5. Log
+Kurzbeschreibung: Loggt die aktuellen Werte/Attribute für Diagnosezwecke.
+
+| Keyword       | Button | TextField | MultilineField | Label | CheckBox | ComboBox | RadioList | ListBox |
+|---------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
+| LogValue      |        |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |           |    ✔    |
+| LogTooltip    |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| LogLabel      |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| LogCaption    |   ✔    |           |                |   ✔   |          |          |           |         |
+| LogAttribute  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 
 Hinweise
 - VerifyExist: generisch für alle Widgets über `BaseWidget.okw_verify_exist()` (Adapter: `element_exists`).
 - TypeKey: Auf Widget‑Ebene nicht implementiert. Das Keyword unterstützt jedoch das Literal `$DELETE` und löscht Inhalte bei textbasierten Widgets (über den Keyword‑Handler), ohne `okw_type_key` zu benötigen.
 - Placeholder: Sinnvoll für TextField, MultilineField und input‑basierte ComboBoxen; bei nativen `<select>` ist der Placeholder in der Regel leer.
 - Tooltip: Technisch für alle Widgets möglich (liest `title`/`aria-label`), Sinn je nach Element.
+ - Label: Ermittelt Beschriftung über `aria-labelledby` / `<label for=…>` / `aria-label` / Fallback Text.
+ - Caption: Sichtbarer Text des Elements selbst (nicht die Feldbeschriftung und nicht der Value‑Inhalt).
+- Label: Ermittelt Beschriftung über `aria-labelledby` / `<label for=…>` / `aria-label` / Fallback Text.
+- Caption: Sichtbarer Text des Elements selbst (nicht die Feldbeschriftung und nicht der Value‑Inhalt).
 
 Verweise
 - Adapter: `src/okw4robot/adapters/selenium_web.py`
@@ -48,3 +80,4 @@ Verweise
 - Tooltip‑Keywords: `src/okw4robot/keywords/tooltip_keywords.py`
 - Label‑Keywords: `src/okw4robot/keywords/label_keywords.py`
 - Caption‑Keywords: `src/okw4robot/keywords/caption_keywords.py`
+- Attribute‑Keywords: `src/okw4robot/keywords/attribute_keywords.py`
