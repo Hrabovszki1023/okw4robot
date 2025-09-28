@@ -130,3 +130,21 @@ class SeleniumWebAdapter:
             key, value = list(locator_dict.items())[0]
             return f"{key}:{value}"
         raise TypeError(f"Unsupported locator format: {locator_dict}")
+
+    # Focus helpers
+    def focus(self, locator):
+        el = self.sl.get_webelement(self._resolve(locator))
+        try:
+            # Prefer JS focus to avoid scrolling/click side effects
+            self.sl.driver.execute_script('arguments[0].focus();', el)
+        except Exception:
+            # Fallback: click element
+            el.click()
+
+    def has_focus(self, locator) -> bool:
+        el = self.sl.get_webelement(self._resolve(locator))
+        try:
+            active = self.sl.driver.switch_to.active_element
+            return el == active
+        except Exception:
+            return False

@@ -30,6 +30,14 @@ class ComboBox(BaseWidget):
         # Alias to set value (supports both semantics)
         self.okw_set_value(value)
 
+    def okw_type_key(self, key):
+        # Forward key presses to the combo/input element
+        try:
+            self.adapter.press_keys(self.locator, key)
+        except Exception:
+            # As a fallback, try sending to active element
+            self.adapter.press_keys(None, key)
+
     def okw_verify_value(self, expected):
         actual = None
         # Try value (input) first

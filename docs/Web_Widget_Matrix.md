@@ -5,6 +5,7 @@ Kurzbeschreibung: Aktionen, die keine Werte übergeben bekommen (z. B. Klicks).
 |----------------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
 | ClickOn        |   ✔    |     ✔     |       ✔        |       |    ✔     |          |           |         |
 | DoubleClickOn  |   ✔    |           |                |       |          |          |           |         |
+| SetFocus       |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 
 ## 2. Aktionen mit Eingabewert
 Kurzbeschreibung: Aktionen, die einen Wert/Parameter benötigen (Eingaben, Auswahlen).
@@ -13,7 +14,7 @@ Kurzbeschreibung: Aktionen, die einen Wert/Parameter benötigen (Eingaben, Auswa
 |-----------|:------:|:---------:|:--------------:|:-----:|:--------:|:--------:|:---------:|:-------:|
 | SetValue  |        |     ✔     |       ✔        |       |    ✔     |    ✔     |           |         |
 | Select    |        |           |                |       |          |    ✔     |     ✔     |    ✔    |
-| TypeKey   |        |           |                |       |          |          |           |         |
+| TypeKey   |        |     ✔     |       ✔        |       |          |    ✔     |           |         |
 
 ## 3. Verify (wartend, mit Timeout)
 Kurzbeschreibung: Prüfungen, die bis zum Sollzustand oder Timeout warten.
@@ -39,6 +40,7 @@ Kurzbeschreibung: Prüfungen, die bis zum Sollzustand oder Timeout warten.
 | VerifyAttributeWCM       |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 | VerifyAttributeREGX      |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 | VerifyExist (generisch)  |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
+| VerifyHasFocus           |   ✔    |     ✔     |       ✔        |   ✔   |    ✔     |    ✔     |     ✔     |    ✔    |
 
 ## 4. Memorize
 Kurzbeschreibung: Liest Werte/Attribute und speichert sie in Robot‑Variablen.

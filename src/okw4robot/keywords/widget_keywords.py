@@ -183,3 +183,22 @@ class WidgetKeywords:
         value = resolve_widget(name).okw_memorize_value()
         from robot.libraries.BuiltIn import BuiltIn
         BuiltIn().set_test_variable(f"${{{variable}}}", value)
+
+    @keyword("SetFocus")
+    def set_focus(self, name):
+        widget = resolve_widget(name)
+        adapter = context.get_adapter()
+        adapter.focus(widget.locator)
+
+    @keyword("VerifyHasFocus")
+    def verify_has_focus(self, name, expected):
+        widget = resolve_widget(name)
+        adapter = context.get_adapter()
+        has = adapter.has_focus(widget.locator)
+        expected = str(expected).strip().upper()
+        if expected not in ("YES", "NO"):
+            raise ValueError(f"[VerifyHasFocus] Expected must be 'YES' or 'NO', got '{expected}'")
+        if expected == "YES" and not has:
+            raise AssertionError(f"[VerifyHasFocus] Element '{name}' should have focus, but it does not.")
+        if expected == "NO" and has:
+            raise AssertionError(f"[VerifyHasFocus] Element '{name}' should NOT have focus, but it does.")

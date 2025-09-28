@@ -74,7 +74,9 @@ class AttributeKeywords:
             return
         import time, re
         w = _resolve_widget(name)
-        pattern = '^' + re.escape(expected).replace(r'\\*', '.*').replace(r'\\?', '.') + '$'
+        # Build wildcard pattern: escape, then replace \* -> .*, \? -> .
+        pattern = '^' + re.escape(expected) + '$'
+        pattern = pattern.replace(r'\*', '.*').replace(r'\?', '.')
         rx = re.compile(pattern, re.DOTALL)
         end = time.time() + self._timeout_seconds()
         last = None
@@ -119,4 +121,3 @@ class AttributeKeywords:
     def log_attribute(self, name, attribute):
         w = _resolve_widget(name)
         print("LOG:", _get_attr(w, attribute))
-

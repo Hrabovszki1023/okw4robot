@@ -1,6 +1,9 @@
 ﻿from ..base.base_widget import BaseWidget
 
 class TextField(BaseWidget):
+    def okw_type_key(self, key):
+        # Send keys to the input element
+        self.adapter.press_keys(self.locator, key)
     def okw_set_value(self, value):
         # Prefer clear+type for stability
         try:
