@@ -48,6 +48,17 @@
     </div>
 
     <div class="row">
+      <fieldset data-testid="rl-lieferung">
+        <legend>Lieferung</legend>
+        <label><input type="radio" name="lieferung" value="DHL" /> DHL</label>
+        <label><input type="radio" name="lieferung" value="UPS" /> UPS</label>
+        <label><input type="radio" name="lieferung" value="DPD" /> DPD</label>
+        <label><input type="radio" name="lieferung" value="Hermes" /> Hermes</label>
+        <label><input type="radio" name="lieferung" value="Selbstabholung" /> Selbstabholung</label>
+      </fieldset>
+    </div>
+
+    <div class="row">
       <label for="combo-geschlecht">Geschlecht</label>
       <select id="combo-geschlecht" data-testid="combo-geschlecht">
         <option value="">-- Bitte wählen --</option>
@@ -87,6 +98,7 @@
             ['Anmerkung', byId('ta-anmerkung').value],
             ['Verheiratet', byId('cb-verheiratet').checked ? 'Checked' : 'Unchecked'],
             ['Zahlungsmethode', currentRadio('zahlungsmethode')],
+            ['Lieferung', currentRadio('lieferung')],
             ['Geschlecht', selectedComboText(byId('combo-geschlecht'))],
           ];
 

@@ -9,7 +9,7 @@ Hinweis: Die allgemeine Ignore-Regel fÃ¼r leere Werte bzw. `$IGNORE`/`${IGNORE
 ## ComboBox
 Pfad: `src/okw4robot/widgets/common/combobox.py`
 
-- Konzept: Eingabefeld mit optionaler Dropdown-Auswahl. UnterstÃ¼tzt sowohl native `<select>`-Elemente als auch â€žtype-aheadâ€œ-Combos.
+- Konzept: Eingabefeld mit optionaler Dropdown-Auswahl. Unterstützt sowohl native `<select>`-Elemente (nicht editierbar) als auch „type‑ahead“-Combos (editierbar).
 - Implementiert:
   - `okw_set_value(value)`: versucht zuerst `select_by_label` (fÃ¼r native `<select>`). Falls das fehlschlÃ¤gt: Feld leeren (`clear_text`), Text tippen (`input_text`) und (wo sinnvoll) mit ENTER bestÃ¤tigen (`press_keys("ENTER")`).
   - `okw_select(value)`: Alias zu `okw_set_value(value)`.
@@ -53,4 +53,5 @@ Hinweise:
 ---
 
 Verwandt: Allgemeine Beschreibung der Common-Widgets siehe `docs/widgets_common.md`.
+
 

@@ -15,6 +15,7 @@ class ListBox(BaseWidget):
         return [v.strip() for v in str(value).split(',') if v.strip()]
 
     def okw_select(self, value):
+        self._wait_before('write')
         labels = self._to_list(value)
         if not labels:
             # Empty selection means unselect all
@@ -34,4 +35,3 @@ class ListBox(BaseWidget):
 
     def okw_memorize_value(self):
         return self.adapter.get_selected_list_labels(self.locator)
-

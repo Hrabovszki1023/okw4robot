@@ -100,6 +100,39 @@ class SeleniumWebAdapter:
         resolved = self._resolve(locator)
         return self.sl.get_selected_list_values(resolved)
 
+    # Utility helpers
+    def scroll_into_view(self, locator):
+        el = self.sl.get_webelement(self._resolve(locator))
+        try:
+            self.sl.driver.execute_script('arguments[0].scrollIntoView({block: "center", inline: "nearest"});', el)
+        except Exception:
+            pass
+
+    def is_enabled(self, locator) -> bool:
+        try:
+            el = self.sl.get_webelement(self._resolve(locator))
+            return bool(el.is_enabled())
+        except Exception:
+            return False
+
+    def is_editable(self, locator) -> bool:
+        try:
+            el = self.sl.get_webelement(self._resolve(locator))
+            if not el.is_enabled():
+                return False
+            tag = (el.tag_name or '').lower()
+            ce = (el.get_attribute('contenteditable') or '').lower()
+            if ce in ('true', 'plaintext-only'):
+                return True
+            ro = el.get_attribute('readonly')
+            if ro is not None and str(ro).lower() not in ('false', 'none'):
+                return False
+            if tag in ('input', 'textarea'):
+                return True
+            return False
+        except Exception:
+            return False
+
     def unselect_all_from_list(self, locator):
         resolved = self._resolve(locator)
         self.sl.unselect_all_from_list(resolved)

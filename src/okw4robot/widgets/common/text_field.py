@@ -3,8 +3,11 @@
 class TextField(BaseWidget):
     def okw_type_key(self, key):
         # Send keys to the input element
+        self._wait_before('write')
         self.adapter.press_keys(self.locator, key)
+
     def okw_set_value(self, value):
+        self._wait_before('write')
         # Prefer clear+type for stability
         try:
             self.adapter.clear_text(self.locator)
@@ -13,6 +16,7 @@ class TextField(BaseWidget):
         self.adapter.input_text(self.locator, value)
 
     def okw_click(self):
+        self._wait_before('write')
         self.adapter.click(self.locator)
 
     def okw_verify_value(self, expected):

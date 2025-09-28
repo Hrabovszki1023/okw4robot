@@ -54,6 +54,54 @@ RadioList Select And Verify
     VerifyValue     Zahlungsmethode     paypal
     Teardown Widgets Demo
 
+RadioList (Container) Select And Verify Lieferung
+    Setup Widgets Demo
+    Select Window   WidgetsDemo
+    Select          Lieferung     DPD
+    VerifyValue     Lieferung     DPD
+    Teardown Widgets Demo
+
+RadioLists Cycle And Verify (Value/WCM/REGX)
+    Setup Widgets Demo
+    Select Window   WidgetsDemo
+    
+    # Zahlungsmethode (name-basierte Gruppe)
+    Select          Zahlungsmethode     paypal
+    VerifyValue     Zahlungsmethode     paypal
+    VerifyValueWCM  Zahlungsmethode     *pay*
+    VerifyValueREGX  Zahlungsmethode     ^pay.*
+    Select          Zahlungsmethode     visa
+    VerifyValue     Zahlungsmethode     visa
+    VerifyValueWCM  Zahlungsmethode     *isa*
+    VerifyValueREGX  Zahlungsmethode     ^vis.*
+    Select          Zahlungsmethode     sepa
+    VerifyValue     Zahlungsmethode     sepa
+    VerifyValueWCM  Zahlungsmethode     *epa*
+    VerifyValueREGX  Zahlungsmethode     ^sep.*
+
+    # Lieferung (fieldset/container-basierte Gruppe)
+    Select          Lieferung     DHL
+    VerifyValue     Lieferung     DHL
+    VerifyValueWCM  Lieferung     D*
+    VerifyValueREGX  Lieferung     ^DHL$
+    Select          Lieferung     UPS
+    VerifyValue     Lieferung     UPS
+    VerifyValueWCM  Lieferung     U*
+    VerifyValueREGX  Lieferung     ^UPS$
+    Select          Lieferung     DPD
+    VerifyValue     Lieferung     DPD
+    VerifyValueWCM  Lieferung     D*
+    VerifyValueREGX  Lieferung     ^DPD$
+    Select          Lieferung     Hermes
+    VerifyValue     Lieferung     Hermes
+    VerifyValueWCM  Lieferung     Herm*
+    VerifyValueREGX  Lieferung     ^Herm.*
+    Select          Lieferung     Selbstabholung
+    VerifyValue     Lieferung     Selbstabholung
+    VerifyValueWCM  Lieferung     Selbst*
+    VerifyValueREGX  Lieferung     ^Selbst.*
+    Teardown Widgets Demo
+
 ComboBox Set And Verify
     Setup Widgets Demo
     Select Window   WidgetsDemo

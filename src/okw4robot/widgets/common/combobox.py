@@ -9,25 +9,52 @@ class ComboBox(BaseWidget):
     2) If that fails, clear and type the text, then press ENTER.
     """
 
-    def okw_set_value(self, value):
+    def _is_editable(self) -> bool:
+        # YAML override: editable: true/false; fallback to adapter.is_editable
+        if 'editable' in self.options:
+            try:
+                return bool(self.options.get('editable'))
+            except Exception:
+                pass
         try:
-            self.adapter.select_by_label(self.locator, value)
-            return
+            if hasattr(self.adapter, 'is_editable'):
+                return bool(self.adapter.is_editable(self.locator))
         except Exception:
             pass
+        return False
+
+    def okw_set_value(self, value):
+        self._wait_before('write')
+        editable = self._is_editable()
+        if not editable:
+            # Non-editable → must be a selection from list; fail if not present
+            try:
+                self.adapter.select_by_label(self.locator, value)
+                return
+            except Exception as e:
+                raise AssertionError(f"[ComboBox] Non-editable. Value '{value}' not found in options or selection failed: {e}")
+        # Editable → type value and commit; fallback to select if needed
         try:
             self.adapter.clear_text(self.locator)
         except Exception:
             pass
         self.adapter.input_text(self.locator, value)
-        # confirm with Enter to commit selection in many combos
         try:
             self.adapter.press_keys(self.locator, "ENTER")
+        except Exception:
+            pass
+        # Best-effort verification to ensure the value took effect
+        try:
+            actual = self.adapter.get_value(self.locator)
+            if actual != value:
+                # try selecting by label as fallback for type-ahead that didn't commit
+                self.adapter.select_by_label(self.locator, value)
         except Exception:
             pass
 
     def okw_select(self, value):
         # Alias to set value (supports both semantics)
+        self._wait_before('write')
         self.okw_set_value(value)
 
     def okw_type_key(self, key):

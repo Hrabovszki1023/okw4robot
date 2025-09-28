@@ -4,9 +4,11 @@ from ..base.base_widget import BaseWidget
 class CheckBox(BaseWidget):
     def okw_click(self):
         # Toggles checkbox
+        self._wait_before('write')
         self.adapter.click(self.locator)
 
     def okw_set_value(self, value):
+        self._wait_before('write')
         norm = str(value).strip().lower()
         if norm in ("true", "checked", "yes", "1"):
             target = True
@@ -31,4 +33,3 @@ class CheckBox(BaseWidget):
 
     def okw_memorize_value(self):
         return "Checked" if self.adapter.is_checkbox_selected(self.locator) else "Unchecked"
-

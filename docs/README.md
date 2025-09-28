@@ -23,3 +23,6 @@ Hinweis: Beispielâ€‘HTMLs liegen unter `docs/examples/` (z. B. `widgets_dem
 - [keywords_caption.md](keywords_caption.md)
 
 - [keywords_attribute.md](keywords_attribute.md)
+- [synchronization_strategy.md](synchronization_strategy.md)
+
+- [radiolist.md](radiolist.md)

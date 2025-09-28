@@ -21,8 +21,12 @@ WidgetsDemo:
       locator: { css: '[data-testid="cb-verheiratet"]' }
 
     Zahlungsmethode:
-      class: okw4robot.widgets.common.radiolist.RadioList
+      class: okw4robot.widgets.common.radiolist.WebRadioList
       group: zahlungsmethode
+
+    Lieferung:
+      class: okw4robot.widgets.common.radiolist.WebRadioList
+      locator: { css: '[data-testid="rl-lieferung"]' }
 
     Geschlecht:
       class: okw4robot.widgets.common.combobox.ComboBox
