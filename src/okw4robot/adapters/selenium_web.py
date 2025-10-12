@@ -133,6 +133,49 @@ class SeleniumWebAdapter:
         except Exception:
             return False
 
+    # Visibility/focusability helpers
+    def is_visible(self, locator) -> bool:
+        try:
+            el = self.sl.get_webelement(self._resolve(locator))
+            return bool(el.is_displayed())
+        except Exception:
+            return False
+
+    def is_focusable(self, locator) -> bool:
+        try:
+            el = self.sl.get_webelement(self._resolve(locator))
+            # must exist; if disabled, not focusable
+            if not el.is_enabled():
+                return False
+            tag = (el.tag_name or '').lower()
+            ce = (el.get_attribute('contenteditable') or '').lower()
+            if ce in ('true', 'plaintext-only'):
+                return True
+            # tabindex >= 0 is focusable
+            tb = el.get_attribute('tabindex')
+            if tb is not None:
+                try:
+                    if int(str(tb)) >= 0:
+                        return True
+                except Exception:
+                    pass
+            # typical natively focusable elements
+            if tag in ('input', 'select', 'textarea', 'button'):
+                return True
+            if tag == 'a':
+                href = el.get_attribute('href')
+                if href:
+                    return True
+            return False
+        except Exception:
+            return False
+
+    def is_clickable(self, locator) -> bool:
+        try:
+            return bool(self.is_visible(locator) and self.is_enabled(locator))
+        except Exception:
+            return False
+
     def unselect_all_from_list(self, locator):
         resolved = self._resolve(locator)
         self.sl.unselect_all_from_list(resolved)

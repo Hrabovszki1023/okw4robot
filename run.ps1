@@ -9,4 +9,17 @@ pip install -e .
 
 # Robot-Tests ausführen
 # robot -d reports tests\test_swingset3_structure.robot
-robot -d reports tests\WidgetsDemo.robot tests\Web_Caption.robot tests\Web_Label.robot tests\Web_Placeholder.robot tests\Web_Attribute.robot tests\Web_Focus.robot
+robot -d reports `
+  tests\WidgetsDemo.robot `
+  tests\Web_Caption.robot `
+  tests\Web_Label.robot `
+  tests\Web_Placeholder.robot `
+  tests\Web_Attribute.robot `
+  tests\Web_Focus.robot `
+  tests\Web_VerifyExist.robot `
+  tests\Web_VerifyVisible.robot `
+  tests\Web_VerifyEnabled.robot `
+  tests\Web_VerifyEditable.robot `
+  tests\Web_VerifyFocusable.robot `
+  tests\Web_VerifyClickable.robot `
+  tests\Web_VerifyHasFocus.robot

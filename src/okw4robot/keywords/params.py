@@ -21,6 +21,16 @@ class ParamsKeywords:
             "TIMEOUTVERIFYLABEL": "${OKW_TIMEOUT_VERIFY_LABEL}",
             "TIMEOUTVERIFYCAPTION": "${OKW_TIMEOUT_VERIFY_CAPTION}",
             "TIMEOUTVERIFYATTRIBUTE": "${OKW_TIMEOUT_VERIFY_ATTRIBUTE}",
+            # New timeouts for state verification
+            "TIMEOUTVERIFYEXIST": "${OKW_TIMEOUT_VERIFY_EXIST}",
+            "TIMEOUTVERIFYVISIBLE": "${OKW_TIMEOUT_VERIFY_VISIBLE}",
+            "TIMEOUTVERIFYENABLED": "${OKW_TIMEOUT_VERIFY_ENABLED}",
+            "TIMEOUTVERIFYEDITABLE": "${OKW_TIMEOUT_VERIFY_EDITABLE}",
+            "TIMEOUTVERIFYFOCUSABLE": "${OKW_TIMEOUT_VERIFY_FOCUSABLE}",
+            "TIMEOUTVERIFYCLICKABLE": "${OKW_TIMEOUT_VERIFY_CLICKABLE}",
+            "TIMEOUTVERIFYFOCUS": "${OKW_TIMEOUT_VERIFY_FOCUS}",
+            # Poll interval for verify loops
+            "POLLVERIFY": "${OKW_POLL_VERIFY}",
         }
         key = str(name or "").strip().upper()
         if key not in mapping:
